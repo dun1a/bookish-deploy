@@ -137,7 +137,7 @@ app.use((req, res) => {
   res.sendFile(__dirname + '/view/index.html');
 });
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// const port = process.env.PORT || 4000;
+// app.listen(port, () => {
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
