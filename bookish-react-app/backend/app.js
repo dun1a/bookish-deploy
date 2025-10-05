@@ -89,7 +89,9 @@ const imageRouter = require("./routes/imageRouter");
 const searchRouter = require("./routes/searchRouter");
 // const auth = require("./middleware/auth");
 const app = express();
+const cors = require('cors')
 
+app.use(cors())
 app.use(express.json());
 app.use(express.static('view'));
 
