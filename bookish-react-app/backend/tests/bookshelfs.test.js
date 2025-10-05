@@ -179,6 +179,6 @@ describe("Given there are initially some bookshelfs saved", () => {
   });
 });
 
-// afterAll(() => {
-//   mongoose.connection.close();
-// });
+afterAll(() => {
+  mongoose.connection.close();
+});
