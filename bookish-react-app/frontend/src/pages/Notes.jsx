@@ -299,7 +299,7 @@ export default function Notes() {
   return (
     <div className="notes-page">
       <div className="notes-left">
-        <h2>Notes for {book?.title || "This Book"}</h2>
+        <h2>Book:  {book?.title || "This Book"}</h2>
         <input
           className="note-search"
           placeholder="Search notes..."
@@ -332,7 +332,7 @@ export default function Notes() {
       </div>
 
       <div className="notes-right">
-        <h2>Pictures</h2>
+        <h2>Pictures: </h2>
         <div className="images">
           {images.map((img) => {
             const id = img._id || img.id;

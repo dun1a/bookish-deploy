@@ -14,12 +14,7 @@ export const NavBar = ({ isAuthenticated, setIsAuthenticated }) => {
     return (
         <nav className="navbar">
 
-            <div className="nav_logo-title">
-                <Link to="/" className="nav_bookish-title">
-                    <span className="nav_bookish-title">Bookish</span>
-                    {/* <img src={logo} alt="logo" /> */}
-                </Link>
-            </div>
+
             <div className="nav_menu" onClick={() => setMenuOpen(!menuOpen)}>
                 <span></span>
                 <span></span>
@@ -28,6 +23,11 @@ export const NavBar = ({ isAuthenticated, setIsAuthenticated }) => {
             <ul className={menuOpen ? "open" : ""}>
                 {!isAuthenticated ? (
                     <>
+                        <div className="nav_logo-title">
+                            <Link to="/" className="nav_bookish-title">
+                                <span className="nav_bookish-title">Bookish</span>
+                            </Link>
+                        </div>
                         <div className="nav_nav-center">
 
                             <li>
@@ -66,7 +66,7 @@ export const NavBar = ({ isAuthenticated, setIsAuthenticated }) => {
                     <div className="nav_nav-right">
                         <li>
                             <NavLink to="/mainPage" className={({ isActive }) => (isActive ? "nav_active" : "")}>
-                                Note page
+                                My Bookish
                             </NavLink>
                         </li>
                         <li>

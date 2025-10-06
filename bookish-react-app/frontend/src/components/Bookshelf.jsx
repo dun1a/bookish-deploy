@@ -243,9 +243,9 @@ export default function Bookshelf() {
         onClick={() => setOpenForm(true)}
         disabled={busy}
         style={{
-          position: "fixed",
-          right: 16,
-          top: "40%",
+        position: "absolute",
+          right: "10%",
+          top: "35%",
           transform: "translateY(-50%)",
           padding: "12px 14px",
           borderRadius: 12,
@@ -265,14 +265,15 @@ export default function Bookshelf() {
       {openForm && (
         <div
           style={{
-            position: "fixed",
-            top: 0,
+            position: "absolute",
+            top: "15%",
             right: 0,
-            height: "100vh",
             width: 380,
             background: "#ffffff",
             borderLeft: "1px solid rgba(0,0,0,0.1)",
             boxShadow: "-8px 0 24px rgba(0,0,0,0.12)",
+            backgroundColor: "#fefefe",
+            borderRadius: "10px",
             padding: "18px 16px",
             zIndex: 30,
             display: "flex",
@@ -280,7 +281,7 @@ export default function Bookshelf() {
             gap: 12,
           }}
         >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+          <div >
             <h3 style={{ margin: 0 }}>Add Book</h3>
             <button
               onClick={closeForm}

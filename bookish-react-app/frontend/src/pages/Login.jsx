@@ -25,7 +25,7 @@ const Login = ({ setIsAuthenticated }) => {
             <input
               type="text"
               name="username"
-              placeholder="username or email"
+              placeholder="username"
               value={form.username}
               onChange={handleChange}
               autoComplete="username"

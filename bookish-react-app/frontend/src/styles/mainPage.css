@@ -5,14 +5,14 @@ Variables
 */
 
 :root {
-    --transition: all 0.3s linear;
-    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    --background-color: #f8f4f4;
-    --color-1: #44624a;
-    --color-2: #8ba888;
-    --color-3: #c0cfb2;
-    --color-4: #f1ebe1;
+  --transition: all 0.3s linear;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --background-color: #f8f4f4;
+  --color-1: #44624a;
+  --color-2: #8ba888;
+  --color-3: #c0cfb2;
+  --color-4: #f1ebe1;
 
 }
 
@@ -25,83 +25,83 @@ Global Styles
 */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    line-height: 1.5;
-    font-size: 0.875rem;
-    background-color: var(--background-color);
+  line-height: 1.5;
+  font-size: 0.875rem;
+  background-color: var(--background-color);
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h1,
 h2,
 h3,
 h4 {
-    line-height: 1.25;
-    margin-bottom: 0.75rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
 }
 
 h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 h2 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 h3 {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 h4 {
-    font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 
 
 
 @media screen and (min-width: 800px) {
-    h1 {
-        font-size: 4rem;
-    }
+  h1 {
+    font-size: 4rem;
+  }
 
-    h2 {
-        font-size: 2.5rem;
-    }
+  h2 {
+    font-size: 2.5rem;
+  }
 
-    h3 {
-        font-size: 1.75rem;
-    }
+  h3 {
+    font-size: 1.75rem;
+  }
 
-    h4 {
-        font-size: 1rem;
-    }
+  h4 {
+    font-size: 1rem;
+  }
 
-    body {
-        font-size: 1rem;
-    }
+  body {
+    font-size: 1rem;
+  }
 
-    h1,
-    h2,
-    h3,
-    h4 {
-        line-height: 1;
-    }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
 }
 
 
@@ -114,6 +114,12 @@ h4 {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  /* background: linear-gradient(45deg, var(--color-4), var(--color-3)); */
+  background-image: url('../assets/img/bg.png');
+  background-size: cover;      
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
 }
 
 .mainpage_page-layout {
@@ -133,7 +139,7 @@ h4 {
   position: relative;
 
 
-  max-width: 1400px; 
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
 }
@@ -147,7 +153,7 @@ h4 {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 60px; 
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -275,10 +281,12 @@ h4 {
 
 .shelf-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* exactly 3 per row */
+  grid-template-columns: repeat(3, 1fr);
+  /* exactly 3 per row */
   gap: 12px;
   justify-items: center;
-  overflow: visible; /* let rotated titles breathe */
+  overflow: visible;
+  /* let rotated titles breathe */
 }
 
 .book-slot,
@@ -448,8 +456,15 @@ h4 {
 }
 
 @keyframes popupFade {
-  from { opacity: 0; transform: scale(0.9) translateY(10px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* ==============================
