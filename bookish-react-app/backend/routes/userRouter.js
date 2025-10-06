@@ -19,7 +19,7 @@ router.post("/login", logIn);
 // signup route
 router.post("/signup", signUp);
 
-//router.use(auth) 
+router.use(auth) 
 
 // Get all users
 router.get('/', getAllUsers);
