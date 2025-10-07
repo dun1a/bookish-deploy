@@ -337,7 +337,7 @@ export default function Bookshelf() {
               />
             </label>
 
-            <label style={{ display: "grid", gap: 6 }}>
+            {/* <label style={{ display: "grid", gap: 6 }}>
               <span>Theme</span>
               <input
                 name="booktheme"
@@ -347,7 +347,7 @@ export default function Bookshelf() {
                 placeholder="e.g., Self-help"
                 style={{ padding: "10px 12px", borderRadius: 8, border: "1px solid #ddd" }}
               />
-            </label>
+            </label> */}
 
             <label style={{ display: "grid", gap: 6 }}>
               <span>Published (Year/Number)</span>
