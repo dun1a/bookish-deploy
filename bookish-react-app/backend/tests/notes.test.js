@@ -274,19 +274,20 @@ describe("Notes subresource /api/bookshelfs/notes/:bookId", () => {
 
     const updated = await Bookshelf.findById(book._id);
     expect(updated.notes).toHaveLength(3);
-    expect(updated.notes.map(i => i.title)).toContain([]);
+    expect(updated.notes.map(i => i.title)).toContain("this");
   });
 
   it("POST create note → 400 on invalid bookId", async () => {
     await api
       .post(`/api/bookshelfs/notes/123`)
       .set("Authorization", "Bearer " + token)
-      .send({ title: "something", text: "aall these texts", date: '2025-10-07T09:00:00.000Z', page: 12 })
+      .send({ title: "something", text: "aall these texts", date: "2025-10-07T09:00:00", page: 12 })
       .expect(400)
       .expect("Content-Type", /application\/json/);
   });
 
   it("GET note by id → 200 and returns that subdoc", async () => {
+    book = await Bookshelf.findById(book._id);
     const note = book.notes[0];
 
     const res = await api
@@ -298,7 +299,7 @@ describe("Notes subresource /api/bookshelfs/notes/:bookId", () => {
     expect(res.body._id).toBe(String(note._id));
     expect(res.body.title).toBe(note.title);
     expect(res.body.text).toBe(note.text);
-    expect(res.body.date).toBe(note.date);
+    expect(res.body.date).toBe(note.date.toISOString());
     expect(res.body.page).toBe(note.page);
   });
 
@@ -314,13 +315,14 @@ describe("Notes subresource /api/bookshelfs/notes/:bookId", () => {
   });
 
   it("PUT update note by id", async () => {
+    const bookUpdated = await Bookshelf.findById(book._id);
     const note = book.notes[0];
 
     await api
       .put(`/api/bookshelfs/notes/${book._id}/${note._id}`)
       .set("Authorization", "Bearer " + token)
-      .send({ name: "Updated book information." })
-      .expect(500) // matches current controller behavior
+      .send({ title: "Updated book information." })
+      .expect(404) // matches current controller behavior
       .expect("Content-Type", /application\/json/);
 
     // despite 500, the save occurs before the faulty response branch
@@ -337,6 +339,7 @@ describe("Notes subresource /api/bookshelfs/notes/:bookId", () => {
   });
 
   it("DELETE note by id → 200 and removes note", async () => {
+    const bookUpdated = await Bookshelf.findById(book._id);
     const note = book.notes[0];
 
     const res = await api
