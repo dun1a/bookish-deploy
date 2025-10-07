@@ -76,7 +76,7 @@ const updateImage = async(req,res) => {
         return res.status(400).json({message: "Invalid bookshelf ID"});
     }
     if(!mongoose.Types.ObjectId.isValid(imageId)){
-        return res.status(400).josn({message: "Invalid images ID"});
+        return res.status(400).json({message: "Invalid images ID"});
     }
     try{
         const book = await Bookshelf.findById(bookId);
