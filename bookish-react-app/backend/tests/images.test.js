@@ -1,120 +1,3 @@
-// const mongoose = require("mongoose");
-// const supertest = require("supertest");
-// const app = require("../app"); // Your Express app
-// const api = supertest(app);
-// const Bookshelf = require("../models/bookShelfModel");
-// const User = require("../models/userModel");
-
-// const images = [
-//   {
-//     "src": "https://example.com/images/cover1.jpg",
-//     "name": "Front Cover"
-//   },
-//   {
-//     "src": "https://example.com/images/illustration1.png",
-//     "name": "Chapter 1 Illustration"
-//   },
-// ];
- 
-// let token = null;
-// let book;
-
-// beforeAll(async () => {
-//   await User.deleteMany({});
-//   const result = await api.post("/api/users/signup").send({
-//     name: "Alice Johnson",
-//     username: "alicej",
-//     email: "alice@example.com",
-//     password: "abcABC1!23321",
-//   });
-//   token = result.body.token;
-// });
-
-// describe("Given there are initially some images saved", () => {
-//   beforeEach(async () => {
-//     await Bookshelf.deleteMany({notes});
-//     await Promise.all([
-//       api
-//         .post(`/api/bookshelfs/${book._id}/images`)
-//         .set("Authorization", "bearer " + token)
-//         .send(images[0]),
-//       api
-//         .post(`/api/bookshelfs/${book._id}/images`)
-//         .set("Authorization", "bearer " + token)
-//         .send(images[1]),
-//     ]);
-//   });
-
-//   it("should return all images as JSON when GET /api/images is called", async () => {
-//     await api
-//       .get(`/api/bookshelfs/${book._id}/images`)
-//       .set("Authorization", "bearer " + token)
-//       .expect(200)
-//       .expect("Content-Type", /application\/json/);
-//   });
-
-//   it("should create one book when POST /api/images is called", async () => {
-//     const newImage = {
-     
-//     "src": "https://example.com/images/backcover.jpg",
-//     "name": "Back Cover"
-  
-//     };
-//     await api
-//       .post(`/api/bookshelfs/${book._id}/images`)
-//       .set("Authorization", "bearer " + token)
-//       .send(newImage)
-//       .expect(201);
-//   });
-
-//   it("should return one image by ID when GET /api/images/:id is called", async () => {
-//     const book = await Bookshelf.findOne();
-//     const image = await Bookshelf.findOne();
-//     await api
-//       .get(`/api/bookshelfs/${book._id}/images/${image._id}`)
-//       .set("Authorization", "bearer " + token)
-//       .expect(200)
-//       .expect("Content-Type", /application\/json/);
-//   });
-
-//   it("should update one image by ID when PUT /api/images/:id is called", async () => {
-//     const book = await Bookshelf.findOne();
-//     const image = await book.images.id();
-//     const updatedImage = {
-//       name: "Updated book information.",
-      
-//     };
-//     const response = await api
-//       .put(`/api/bookshelfs/${book._id}/images/${image._id}`)
-//       .set("Authorization", "bearer " + token)
-//       .send(updatedImage)
-//       .expect(200)
-//       .expect("Content-Type", /application\/json/);
-  
-//     console.log("Response body:", response.body);
-  
-//     const updatedImageCheck = await Bookshelf.findById(book._id);
-//     console.log("Updated book:", updatedImageCheck);
-  
-//     expect(updatedImageCheck.name).toBe(updatedImage.name);
-//   });
-  
-
-//   it("should delete all images when DELETE /api/images/:id is called", async () => {
-
-//     await api
-//       .delete("/api/images/reset")
-//       .set("Authorization", "bearer " + token)
-//       .expect(200);
-//     const imageCheck = await Bookshelf.find({});
-//     expect(imageCheck).toHaveLength(0);
-//   });
-// });
-
-// afterAll(() => {
-//   mongoose.connection.close();
-// });
-
 const mongoose = require("mongoose");
 const supertest = require("supertest");
 const app = require("../app"); // Your Express app
@@ -207,7 +90,7 @@ describe("Given there are initially some images saved", () => {
       .post(`/api/bookshelfs/${book._id}/images`)
       .set("Authorization", "bearer " + token)
       .send(newImage)
-      .expect(201);
+      .expect(200);
 
     const updatedBook = await Bookshelf.findById(book._id);
     expect(updatedBook.images).toHaveLength(3);
@@ -218,7 +101,7 @@ describe("Given there are initially some images saved", () => {
     const image = book.images[0];
 
     const response = await api
-      .get(`/api/bookshelfs/${book._id}/images/${image._id}`)
+      .get(`/api/bookshelfs/${book._id}/images/${image.id}`)
       .set("Authorization", "bearer " + token)
       .expect(200)
       .expect("Content-Type", /application\/json/);

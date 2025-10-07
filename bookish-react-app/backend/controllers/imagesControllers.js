@@ -81,12 +81,12 @@ const updateImage = async(req,res) => {
     try{
         const book = await Bookshelf.findById(bookId);
         const image = book.images.id(imageId);
-        const ogUrl = image.url;
-        const ogDate = image.date;
+        const ogSrc = image.src;
+        const ogName = image.name;
         const updatedImage = image.set({...req.body});
         await book.save();
 
-    if(updatedImage.url !== ogUrl || updatedImage.date !== ogDate){
+    if(updatedImage.src !== ogSrc|| updatedImage.name !== ogName){
         res.status(200).json(updatedImage);
     }else{
         res.status(404).josn({message: "Could not update image"});
