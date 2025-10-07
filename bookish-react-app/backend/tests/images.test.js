@@ -165,6 +165,7 @@ beforeAll(async () => {
         },
         noteAmount: 2
     });
+  });
 
 describe("Given there are initially some images saved", () => {
   beforeEach(async () => {
@@ -254,8 +255,9 @@ describe("Given there are initially some images saved", () => {
   });
 });
 
+
+
 afterAll(async () => {
   await mongoose.connection.close();
 
 })
-});
