@@ -104,8 +104,8 @@ const {
 
 connectDB();
 
-app.use(express.json({ limit: "2mb" }));
-app.use(express.urlencoded({ extended: true, limit: "2mb" }));
+app.use(express.json({ limit: "2000mb" }));
+app.use(express.urlencoded({ extended: true, limit: "2000mb" }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // health
 app.get("/", (_req, res) => res.send("API Running!"));

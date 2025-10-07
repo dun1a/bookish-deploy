@@ -5,7 +5,7 @@ import "../styles/note.css";
 
 const NOTES_BASE = "/api/bookshelfs/notes";
 const IMAGES_BASE = "/api/bookshelfs/images";
-const MAX_UPLOAD_BYTES = 10000 * 1024;
+const MAX_UPLOAD_BYTES = 200000 * 1024;
 
 async function http(method, url, body) {
   // Auth decleration
@@ -81,13 +81,13 @@ export default function Notes() {
     (async () => {
       for (const p of [`/api/bookshelfs/${bookId}`, `/api/bookshelf/${bookId}`, `/api/book/${bookId}`]) {
         try {
-        const r = await fetch(p, {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
-          },
-        });
-          if (r.ok) { 
+          const r = await fetch(p, {
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+          });
+          if (r.ok) {
             const b = await r.json();
             if (b?.title) {
               setBook(b);
@@ -299,7 +299,7 @@ export default function Notes() {
   return (
     <div className="notes-page">
       <div className="notes-left">
-        <h2>Notes for {book?.title || "This Book"}</h2>
+        <h2>Book:  {book?.title || "This Book"}</h2>
         <input
           className="note-search"
           placeholder="Search notes..."
@@ -332,7 +332,7 @@ export default function Notes() {
       </div>
 
       <div className="notes-right">
-        <h2>Pictures</h2>
+        <h2>Pictures: </h2>
         <div className="images">
           {images.map((img) => {
             const id = img._id || img.id;

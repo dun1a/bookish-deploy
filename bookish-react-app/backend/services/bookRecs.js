@@ -4,7 +4,7 @@ const model = require("./gemini");
 const generateBookRecs = async (title, author, rating) => {
   const prompt = `
 You are a certified librarian and you are meant to reccomend books according to the input of the user (title, author, rating).
- Based on the user's details, create a **personalized book recommendation**.
+ Based on the user's details, create a **personalized book recommendation**. Each time you return different books
 
 ### Schema Requirements:
 The JSON response should have the following structure:
@@ -23,7 +23,7 @@ The JSON response should have the following structure:
 ### User Input:
 The book name I read was ${title} and the author was ${author}. This is my rating for the book: ${rating} 1 being the lowest
 and 5 being the highest. If the rating is below 2, suggest books from at least 4 different genres than this book's genre and none from the same genre of this book.
-I would like for you to recommend some book (10 to be exact) that would alighn with my preferences. 
+I would like for you to recommend some book (10 to be exact) that would alighn with my preferences. Each time you return different books
 Please take into consideration my rating of the book I read. 
 
 Please:
@@ -44,7 +44,7 @@ const generateSearch = async (genre, pageAmount, yearPublished) => {
 
 const promptSearch = `
     You are a certified librarian and you are meant to recommend books according to the input of the user (genre, page amount, year published).
-    Based on the user's details, create **personalized 50 book recommendations**.
+    Based on the user's details, create **personalized 50 book recommendations** Each time you return different books.
     ### Schema Requirements:
     The JSON response should have the following structure:
     {

@@ -50,7 +50,7 @@ const Signup = ({setIsAuthenticated}) => {
 
             <div className="signup_input-field signup_password-container">
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}

@@ -253,9 +253,9 @@ export default function BookModal({ book, onClose, onShelfRefresh }) {
               </div>
 
               <div style={pillRow}>
-                <div style={pill}>👤 <strong style={{ fontWeight: 600 }}>{showAuthor}</strong></div>
+                <div style={pill}>👤<span>Author:</span> <strong style={{ fontWeight: 600 }}>{showAuthor}</strong></div>
                 <div style={pill}>🏷️ <span>Genre:</span> <strong style={{ fontWeight: 600 }}>{showGenre}</strong></div>
-                <div style={pill}>🎨 <span>Theme:</span> <strong style={{ fontWeight: 600 }}>{showTheme}</strong></div>
+                {/* <div style={pill}>🎨 <span>Theme:</span> <strong style={{ fontWeight: 600 }}>{showTheme}</strong></div> */}
                 <div style={pill}>📅 <span>Published:</span> <strong style={{ fontWeight: 600 }}>{showPublished}</strong></div>
               </div>
 
